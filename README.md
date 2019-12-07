@@ -13,19 +13,18 @@ Due: December 7th, 2019
 """
 #doc string, just states project and my name
 print(__doc__)
-#imports datetime, so it can be used
 import datetime
+import pandas as pd
 
 #welcomes user to application
 print("Welcome to M & R = Motivation & Reminders! Here you will be able to get friendly reminders to stay on track and some daily motivation to stay positive!\n")
 #lines 16-17 allows for user to input their name
 h=input("What is your name? ")
 print("Nice to see you today",h)
-
 #getting the exact day from the datetime module
 tday=datetime.date.today()
-
-print(tday,"\n")
+#prints the date 
+print("Today is",tday,"\n")
 
 #list of daily quotes 
 quotes=[
@@ -34,7 +33,7 @@ quotes=[
        "Today is a new day, forget yesterday, it is over. Focus on ways to better yourself and those around you.",
        "Remember it is okay to have time to yourself and to make time for for your mental and physical health, that is all you have, the longevity of your health starts with you.",
        "Greetings, today take a moment and write down how you are feeling so far and write down 5 things that you are grateful for.",
-       "Hi, it's your off day, go to sleep,exercise, spend time with family or your significant other! Enjoy your day off and do something for yourself.",
+       "Hi, spend time with family or your significant other! Enjoy your day off and do something for yourself.",
        "Smile and be joyful, there is so much to live for, anything that is currently bothering you will pass. Destress and spend some time today meditating!"]
 #lines 37-65 are identifiying weekdays and printing out messages depending on the day.
 #weekday=day of week and tday=current day of the week the program is ran on
@@ -76,31 +75,34 @@ reminder()
 print("\n")
 
 print("Today you need to...")
-
+   
 data=pd.read_csv('C:/Users/tavia/Downloads/task216.csv')
 type(data)
-mylist=data['tas'].tolist()
-type(mylist)
+
+list=data
 
 def task1():
     """ Says what task need to be done for a given day of the week"""
     if tday.weekday()==0:
-        print(mylist[0:2])
+        print(data[0:3])
     elif tday.weekday()==1:
-        print(mylist[3:5])
+        print(data[4:6])
     elif tday.weekday()==2:
-        print(mylist[6:8])
+        print(data[7:10])
     elif tday.weekday()==3:
-        print(mylist[9:11])
+        print(data[11:12])
     elif tday.weekday()==4:
-        print(mylist[12:14])
+        print(data[13:15])
     elif tday.weekday()==5:
-        print(mylist[15:17]) 
+        print(data[16:18]) 
     elif tday.weekday()==6:
-        print(mylist[18:20])
+        print(data[19:22])
     else:
         print()
-#prints the task assigned for the day        
+
+#prints docstring
+print(task1.__doc__)
+#prints the task assigned for the day   
 task1()
 
 import smtplib
