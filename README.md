@@ -18,60 +18,86 @@ import datetime
 
 #welcomes user to application
 print("Welcome to M & R = Motivation & Reminders! Here you will be able to get friendly reminders to stay on track and some daily motivation to stay positive!\n")
+#lines 16-17 allows for user to input their name
+h=input("What is your name? ")
+print("Nice to see you today",h)
 
 #getting the exact day from the datetime module
 tday=datetime.date.today()
 
 print(tday,"\n")
 
-#lines 20-35 are identifiying weekdays and printing out messages depending on the day.
+#list of daily quotes 
+quotes=[
+       "Have a great day! There may be many challenges facing you, but do not give up and remember to smile!",
+       "You are strong, cappable, and intellignet, today will be great and do not let anything deter you!",
+       "Today is a new day, forget yesterday, it is over. Focus on ways to better yourself and those around you.",
+       "Remember it is okay to have time to yourself and to make time for for your mental and physical health, that is all you have, the longevity of your health starts with you.",
+       "Greetings, today take a moment and write down how you are feeling so far and write down 5 things that you are grateful for.",
+       "Hi, it's your off day, go to sleep,exercise, spend time with family or your significant other! Enjoy your day off and do something for yourself.",
+       "Smile and be joyful, there is so much to live for, anything that is currently bothering you will pass. Destress and spend some time today meditating!"]
+#lines 37-65 are identifiying weekdays and printing out messages depending on the day.
 #weekday=day of week and tday=current day of the week the program is ran on
 # "==" means if something is equal to another variable 
 def reminder():
     """This is making it possible to use the weekdays and say a certain message on a given day"""
     if tday.weekday()==0:
-        print("Don't give up! Everything will be okay. This can be a long drawn out day for some, but for you, it will be so rewardsing! Change your mindset on how this day is viewed! \n") 
+        return_value=quotes.pop(0)
+        #pop feature is used so that messages are not repeated
+        print('',return_value)
     elif tday.weekday()==1:
-        print("You are beautiful! Do not let others get the best of you! Take a few minutes to breathe and admire the scenary or just the beauty in life.\n")
+        return_value=quotes.pop(2)
+        print('', return_value)
     elif tday.weekday()==2:
-        print("Smile through the pain, it never rains forever! What are some areas of imporovemet for you?\n")
+        return_value=quotes.pop(1)
+        print('', return_value)
     elif tday.weekday()==3:
-        print("It's almost Friday! Write down how you are feeling so far and take a moment to write down 5 things that made you smile!\n")
+        return_value=quotes.pop(3)
+        print('',return_value)
     elif tday.weekday()==4: 
-        print("You should be so proud of yourself, look how far you have come! Yes there may have been sometimes where you felt down, but go celebrate yourself, you deserve it!\n")
+        return_value=quotes.pop(4)
+        print('',return_value)
     elif tday.weekday()==5:
-        print("Take the time to relax and unwind. What are you greatful for? Sit down and write down your thoughts and feelings on this.\n")
+        return_value=quotes.pop(5)
+        print('',return_value)
+    elif tday.weekday()==6:
+        return_value=quotes.pop(6)
+        print('',return_value)
     else:
-        print("Go to sleep! Enjoy your day off and do something for yourself. \n")  
-#print(reminder.__doc__)
-        
-#prints the reminder for the day (motivational message)
-reminder()
+        print()  
 
-#lines 45-68 are giving task reminders to the user on the given day the program is ran, so that they stay productive
-# "==" means if something is equal to another variable 
+print(reminder.__doc__)
+#prints docstring
+print("\n")
+#prints a space for aesthetic purposes
+        
+reminder()
+#prints the reminder for the day (motivational message)
+print("\n")
+
+print("Today you need to...")
+
+data=pd.read_csv('C:/Users/tavia/Downloads/task216.csv')
+type(data)
+mylist=data['tas'].tolist()
+type(mylist)
+
 def task1():
     """ Says what task need to be done for a given day of the week"""
     if tday.weekday()==0:
-       print("Clean room at 4:00 p.m.")
-       print("Cook dinner at 4:45 p.m.")
-       print("Do homework at 7:30 p.m.\n")
+        print(mylist[0:2])
     elif tday.weekday()==1:
-        print("Exercise this morning at 6:00 a.m.")
-        print("Go to tutoring at 12:05 p.m.")
-        print("Make time for yourself and plan out 30 minutes of quiet time. \n")
+        print(mylist[3:5])
     elif tday.weekday()==2:
-        print("Go to grocery store today, budget $100")
-        print("Study for classes between, 6:30 p.m.-10:00 p.m.")
+        print(mylist[6:8])
     elif tday.weekday()==3:
-        print("Pick up daughter from soccer practice at 5:30 p.m.")
-        print("Go to gym at 8:00 p.m.\n")
+        print(mylist[9:11])
     elif tday.weekday()==4:
-        print("Go to bank to get your bouns and plan family vaction! Save $250 a week!")
-        print("Put your phone on Do Not Disturb at 6:00 p.m. and relax.\n")
+        print(mylist[12:14])
     elif tday.weekday()==5:
-        print("Go shopping, budget is $300")
-        print("Go on date\n")
+        print(mylist[15:17]) 
+    elif tday.weekday()==6:
+        print(mylist[18:20])
     else:
         print()
 #prints the task assigned for the day        
