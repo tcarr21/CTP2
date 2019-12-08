@@ -1,7 +1,3 @@
-#The Optimistic 5??? (For a Group Name)
-#program that sends reminders of when a task needs to be completed and has motivational messages sent twice a day. 
-#no I think the effort put into the name Good 'ol Group 4 is too great - Garrett 
-
 #start of program...code
 
 """
@@ -77,8 +73,7 @@ print("Today you need to...")
    
 data=pd.read_csv('C:/Users/tavia/Downloads/task216.csv')
 type(data)
-#78-100 is the function that prints out the yask and the few lines above this code is reading in the csv that 
-contains the task
+#78-100 is the function that prints out the yask and the few lines above this code is reading in the csv that contains the task
 list=data
 def task1():
     """ Says what task need to be done for a given day of the week"""
