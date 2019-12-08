@@ -25,7 +25,6 @@ print("Nice to see you today",h)
 tday=datetime.date.today()
 #prints the date 
 print("Today is",tday,"\n")
-
 #list of daily quotes 
 quotes=[
        "Have a great day! There may be many challenges facing you, but do not give up and remember to smile!",
@@ -78,9 +77,9 @@ print("Today you need to...")
    
 data=pd.read_csv('C:/Users/tavia/Downloads/task216.csv')
 type(data)
-
+#78-100 is the function that prints out the yask and the few lines above this code is reading in the csv that 
+contains the task
 list=data
-
 def task1():
     """ Says what task need to be done for a given day of the week"""
     if tday.weekday()==0:
